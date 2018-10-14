@@ -19,7 +19,7 @@ module adder(
 	//
 	// Hint: 
 	//   The module needs 4 ports, 
-<<<<<<< HEAD
+
 	//     the first 2 ports are 16-bit unsigned numbers as the inputs of the adder
 	//     the third port is a 16-bit unsigned number as the output
 	//	   the forth port is a one bit port as the carry flag
@@ -34,7 +34,7 @@ module adder(
     assign cout = c_rpl[15]; 
     
     initial begin 
-    cin = 1'b0; 
+    	cin = 1'b0; 
     end 
     
     full_adder FA0(.in1(A[0]), .in2(B[0]), .cin(cin), .rslt(rslt[0]), .cout(c_rpl[0])); 
@@ -75,14 +75,3 @@ module full_adder(
 endmodule
 
 
-=======
-	//     the first 2 ports input two 16-bit unsigned numbers as the addends
-	//     the third port outputs a 16-bit unsigned number as the sum
-	//	   the forth port outputs a 1-bit carry flag as the overflow
-	// 
-);
-	// TODO: Implement this module here
-	// Hint: You can use generate statement in Verilog to create multiple instantiations of modules and code.
-	
-endmodule
->>>>>>> acec0d256cc8102cbb27f7785b586f687d4f133c
