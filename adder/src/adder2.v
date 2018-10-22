@@ -63,20 +63,6 @@ module CLU_4(
 	assign PP = P[3] & P[2] & P[1] & P[0];  
 endmodule
 
-module CLU_16(
-	input wire [3:0] P,
-	input wire [3:0] G, 
-	input wire Cin, 
-	output wire [3:0] C, 
-	output wire Cout
-);
-	assign C[0] = Cin; 
-	assign C[1] = G[0] | P[0] & C[0];
-	assign C[2] = G[1] | P[1] & G[0] | P[1] & P[0] & C[0]; 
-	assign C[3] = G[2] | P[2] & G[1] | P[2] & P[1] & G[0] | P[2] & P[1] & P[0] & C[0]; 
-	assign Cout = G[3] | P[3] & G[2] | P[3] & P[2] & G[1] | P[3] & P[2] & P[1] & G[0] | P[3] & P[2] & P[1] & P[0] & C[0]; 
-endmodule
-
 // digital element wrapper
 module bit4_adder(
 	input wire [3:0] A,
@@ -96,3 +82,17 @@ module bit4_adder(
 	bit_full_adder FA_2(.A(A[2]), .B(B[2]), .Cin(C[2]), .P(P[2]), .G(G[2]), .S(rslt[2])); 
 	bit_full_adder FA_3(.A(A[3]), .B(B[3]), .Cin(C[3]), .P(P[3]), .G(G[3]), .S(rslt[3])); 
 endmodule 
+
+module CLU_16(
+	input wire [3:0] P,
+	input wire [3:0] G, 
+	input wire Cin, 
+	output wire [3:0] C, 
+	output wire Cout
+);
+	assign C[0] = Cin; 
+	assign C[1] = G[0] | P[0] & C[0];
+	assign C[2] = G[1] | P[1] & G[0] | P[1] & P[0] & C[0]; 
+	assign C[3] = G[2] | P[2] & G[1] | P[2] & P[1] & G[0] | P[2] & P[1] & P[0] & C[0]; 
+	assign Cout = G[3] | P[3] & G[2] | P[3] & P[2] & G[1] | P[3] & P[2] & P[1] & G[0] | P[3] & P[2] & P[1] & P[0] & C[0]; 
+endmodule
