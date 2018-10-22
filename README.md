@@ -17,7 +17,7 @@ Compute carries for 4 full-adder using Carry-lookahead-unit in fewer gates laten
 1. input: Ps & Gs(info from 4 4-CLUs), C0(Cout from 1st 4-CLU). 
 2. output: C1 & C2 & C3(give back to CLUs). 
 
-![avatar](./16-CLU.PNG)
+![avatar](./16-CLU.png)
 
 ![avatar](./Architecture.JPG)
 
